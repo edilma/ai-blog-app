@@ -3,6 +3,11 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Generated content
+*.md
+!README.md
+!README.es.md
+
 # C extensions
 *.so
 
