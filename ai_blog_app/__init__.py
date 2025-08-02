@@ -1,3 +1,4 @@
+from typing import Optional
 from .config import create_model_client
 from .agents.writer import create_writer
 from .agents.critic import create_critic
@@ -7,9 +8,44 @@ from .agents.reviewers import (
     create_clarity_and_ethics_reviewer
 )
 
+# +++ NEW FUNCTION  +++
+def _create_initial_writer_task(topic: str, context: Optional[str] = None) -> str:
+    """
+    Creates the initial task for the Writer agent, injecting the
+    PDF context if it is provided.
+    """
+    context_instruction = ""
+    if context:
+        # This is the instruction that tells the agent to use the PDF content
+        context_instruction = (
+            "You MUST use the following text as the primary source and context for your article. "
+            "Base your writing heavily on the information provided below.\n\n"
+            "--- CONTEXT ---\n"
+            f"{context}\n"
+            "--- END CONTEXT ---\n\n"
+        )
+
+    # Combine the context instruction (if any) with the main topic task
+    task = (
+        f"{context_instruction}"
+        f"Write a blog post about '{topic}'. Make sure the post is concise, engaging, and stays within 300 words."
+    )
+    return task
+
+
+
 #function that will generate a blog post with reviews
-async def generate_blog_post_with_review(topic: str, model: str = "gpt-3.5-turbo", provider: str = "openai") -> str:
-    #1. create all agents
+async def generate_blog_post_with_review(
+        topic: str, 
+        model: str = "gpt-3.5-turbo", 
+        provider: str = "openai", 
+        context: Optional[str] = None 
+        ) -> str:
+    '''   
+    Generates a blog post, using provided context if available.
+    The process involves the Writer creating a draft, 
+    which is then reviewed by multiple reviewers.
+    '''
     model_client = create_model_client(provider=provider, model=model)
     writer = create_writer(model_client)
     critic = create_critic(model_client)
@@ -18,15 +54,13 @@ async def generate_blog_post_with_review(topic: str, model: str = "gpt-3.5-turbo
     clarity_and_ethics_reviewer = create_clarity_and_ethics_reviewer(model_client)
 
     # create the initial task for the writer
-    task=f"Write a blog post about '{topic}'. Make sure the post is concise, engaging, and stays within 300 words."
+    task= task = _create_initial_writer_task(topic, context)
 
     #2. writer creates the first draft of the blog post
     draft_result = await writer.run(task=task)
-    # Check if the writer's initial draft was successful
     if not draft_result or not draft_result.messages:
         return "The writer did not produce an initial draft."
     
-    # The writer's initial draft is the first message
     first_draft = draft_result.messages[-1].content
 
     #3. Reviewers provide feedback on the first draft
