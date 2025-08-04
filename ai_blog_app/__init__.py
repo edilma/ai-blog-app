@@ -37,7 +37,7 @@ def _create_initial_writer_task(topic: str, context: Optional[str] = None) -> st
 #function that will generate a blog post with reviews
 async def generate_blog_post_with_review(
         topic: str, 
-        model: str = "gpt-3.5-turbo", 
+        model: Optional[str] = None, 
         provider: str = "openai", 
         context: Optional[str] = None 
         ) -> str:
@@ -46,6 +46,14 @@ async def generate_blog_post_with_review(
     The process involves the Writer creating a draft, 
     which is then reviewed by multiple reviewers.
     '''
+        # If no model is provided, use the default based on the provider
+    if model is None:
+        if provider == "openai":
+            model = "gpt-3.5-turbo"
+        elif provider == "gemini":
+            model = "gemini-1.5-flash"
+        # I  can add more defaults here for other providers
+
     model_client = create_model_client(provider=provider, model=model)
     writer = create_writer(model_client)
     critic = create_critic(model_client)
@@ -54,7 +62,7 @@ async def generate_blog_post_with_review(
     clarity_and_ethics_reviewer = create_clarity_and_ethics_reviewer(model_client)
 
     # create the initial task for the writer
-    task= task = _create_initial_writer_task(topic, context)
+    task= _create_initial_writer_task(topic, context)
 
     #2. writer creates the first draft of the blog post
     draft_result = await writer.run(task=task)

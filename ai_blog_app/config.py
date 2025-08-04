@@ -10,7 +10,7 @@ from autogen_core.models import ModelInfo
 load_dotenv(dotenv_path=Path(__file__).parent.parent / "examples" / ".env")
 
 
-def create_model_client(provider="openai", model="gpt-4"):
+def create_model_client(provider="openai", model="gpt-3.5-turbo"):
     
     config_path = Path(__file__).parent / "llm_config.json"
     
