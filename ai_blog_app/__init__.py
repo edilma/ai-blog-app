@@ -9,7 +9,8 @@ from .agents.reviewers import (
 )
 
 # +++ NEW FUNCTION  +++
-def _create_initial_writer_task(topic: str, context: Optional[str] = None) -> str:
+def _create_initial_writer_task(topic: str, context: Optional[str] = None, max_words: int = 300) -> str:
+
     """
     Creates the initial task for the Writer agent, injecting the
     PDF context if it is provided.
@@ -28,7 +29,7 @@ def _create_initial_writer_task(topic: str, context: Optional[str] = None) -> st
     # Combine the context instruction (if any) with the main topic task
     task = (
         f"{context_instruction}"
-        f"Write a blog post about '{topic}'. Make sure the post is concise, engaging, and stays within 300 words."
+        f"Write a blog post about '{topic}'. Make sure the post is concise, engaging, and stays within {max_words} words."
     )
     return task
 
@@ -39,7 +40,8 @@ async def generate_blog_post_with_review(
         topic: str, 
         model: Optional[str] = None, 
         provider: str = "openai", 
-        context: Optional[str] = None 
+        context: Optional[str] = None ,
+        max_words: int = 300 
         ) -> str:
     '''   
     Generates a blog post, using provided context if available.
@@ -62,7 +64,7 @@ async def generate_blog_post_with_review(
     clarity_and_ethics_reviewer = create_clarity_and_ethics_reviewer(model_client)
 
     # create the initial task for the writer
-    task= _create_initial_writer_task(topic, context)
+    task= _create_initial_writer_task(topic, context, max_words=max_words)
 
     #2. writer creates the first draft of the blog post
     draft_result = await writer.run(task=task)
