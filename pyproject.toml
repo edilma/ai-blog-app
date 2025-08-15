@@ -1,23 +1,53 @@
 [project]
-name = "ai_blog_app"
+name = "ai-blog-app"
 version = "0.1.0"
-description = "An AI-powered blog application"
+description = "An AI-powered application for generating blog content using agents."
+readme = "README.md"
 authors = [
-    { name = "edilma" }
+    { name = "Edilma Riano", email = "EdilmaDev@Gmail.com" }
 ]
-dependencies = [
-    "autogen-agentchat",
-    "autogen-ext[openai]",
-    "openai"
-]
-
+license = { text = "MIT" }
 requires-python = ">=3.10"
+keywords = ["ai", "blog", "autogen", "llm", "agent", "content-generation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Text Processing :: General",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Utilities",
+]
 
-[tool.uv]
-python = "3.10"
+dependencies = [
+    "autogen-agentchat>=0.7.1",
+    "autogen-ext[all]>=0.7.1",
+    "openai>=1.98.0"
+]
 
+[project.urls]
+Homepage = "https://github.com/edilma/AI_Blog_App"
+"Bug Tracker" = "https://github.com/edilma/AI_Blog_App/issues"
+
+[project.optional-dependencies]
+fastapi = [
+    "fastapi",
+    "uvicorn[standard]",
+    "python-dotenv"
+]
+dev = [
+    "python-dotenv",
+]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
 
+# --- Package Discovery ---
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ai_blog_app*"]
