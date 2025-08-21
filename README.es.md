@@ -7,7 +7,7 @@
 
 📖 Also available in [English](README.md)
 
-Un framework avanzado para la creación de pipelines de generación de contenido con IA. Este proyecto utiliza un sistema multiagente, basado en **Microsoft AutoGen**, para escribir, criticar y revisar artículos de forma autónoma en cuanto a calidad, cumplimiento y SEO. 
+Un framework avanzado para la creación de pipelines de generación de contenido con Inteligencia Artificial (IA). Este proyecto utiliza un sistema multiagente, basado en **Microsoft AutoGen**, para escribir, criticar y revisar artículos de forma autónoma en cuanto a calidad, cumplimiento y SEO. 
 
 El sistema puede aceptar contexto opcional desde un PDF, que el LLM procesa para extracción de datos y contexto.  El usuario también puede especificar la longitud del artículo, con un valor predeterminado de **300 palabras**.
 
