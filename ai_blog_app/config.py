@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_core.models import ModelInfo
 
-# Load environment variables from .env file
 
 def create_model_client(provider="openai", model="gpt-3.5-turbo"):
     # Load environment variables when the function is called (not on import)
