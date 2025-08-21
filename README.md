@@ -1,5 +1,5 @@
 
-**Write at AI speed for human readers.**
+## **Write at AI speed for human readers.**
 
 # AI Blog App ✍️
 

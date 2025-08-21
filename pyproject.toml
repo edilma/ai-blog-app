@@ -1,7 +1,7 @@
 [project]
 name = "ai-blog-app"
 version = "1.0.0"
-description = "An AI-powered application for generating blog content using agents."
+description = "A modular AI application for creating high-engagement blog posts. This framework supports multiple LLMs, optional PDF context, and customizable article length."
 readme = "README.md"
 authors = [
     { name = "Edilma Riano", email = "EdilmaDev@Gmail.com" }
