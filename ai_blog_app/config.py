@@ -7,10 +7,12 @@ from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_core.models import ModelInfo
 
 # Load environment variables from .env file
-load_dotenv(dotenv_path=Path(__file__).parent.parent / "examples" / ".env")
-
 
 def create_model_client(provider="openai", model="gpt-3.5-turbo"):
+    # Load environment variables when the function is called (not on import)
+    dotenv_path = Path(__file__).parent.parent / "examples" / ".env"
+    if dotenv_path.exists():
+        load_dotenv(dotenv_path=dotenv_path)
     
     config_path = Path(__file__).parent / "llm_config.json"
     
@@ -22,7 +24,6 @@ def create_model_client(provider="openai", model="gpt-3.5-turbo"):
 
     for config in config_list:
         if config["provider"] == provider:
-            # Support environment variable substitution like ${GEMINI_API_KEY}
             api_key = os.path.expandvars(config.get("api_key", ""))
             
             return OpenAIChatCompletionClient(
