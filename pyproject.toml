@@ -32,7 +32,7 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/edilma/AI_Blog_App"
 Documentation = "https://github.com/edilma/AI_Blog_App/blob/main/README.md"
-Bug Tracker = "https://github.com/edilma/AI_Blog_App/issues"
+BugTracker = "https://github.com/edilma/AI_Blog_App/issues"
 
 [project.optional-dependencies]
 fastapi = [
