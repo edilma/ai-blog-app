@@ -51,4 +51,4 @@ build-backend = "setuptools.build_meta"
 # --- Package Discovery ---
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["ai_blog_app*"]
+include = ["*"]
