@@ -1,6 +1,6 @@
 [project]
 name = "ai-blog-app"
-version = "1.0.3"
+version = "1.0.4"
 description = "A modular AI application for creating high-engagement blog posts. This framework supports multiple LLMs, optional PDF context, and customizable article length."
 readme = "README.md"
 authors = [
