@@ -1,6 +1,6 @@
+from importlib.resources import files
 import json
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
 from autogen_ext.models.openai import OpenAIChatCompletionClient
@@ -8,17 +8,12 @@ from autogen_core.models import ModelInfo
 
 
 def create_model_client(provider="openai", model="gpt-3.5-turbo"):
-    # Load environment variables when the function is called (not on import)
-    dotenv_path = Path(__file__).parent.parent / "examples" / ".env"
-    if dotenv_path.exists():
-        load_dotenv(dotenv_path=dotenv_path)
-    
-    config_path = Path(__file__).parent / "llm_config.json"
-    
-    if not config_path.exists():
-        raise FileNotFoundError("llm_config.json not found in ai_blog_app/")
+    load_dotenv()
 
-    with open(config_path) as f:
+    # Access llm_config.json bundled in the package
+    config_path = files('ai_blog_app').joinpath("llm_config.json")
+    
+    with config_path.open("r", encoding="utf-8") as f:
         config_list = json.load(f)
 
     for config in config_list:
