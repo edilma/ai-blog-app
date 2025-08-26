@@ -38,7 +38,7 @@ Incluye agentes especializados para:
 - **Revisor SEO** → Optimiza para motores de búsqueda.
 
 **💬 Colaboración Inteligente entre Agentes**  
-Los agentes trabajan en un bucle de revisión coordinado.  
+Los agentes trabajan independientemente.  Se reduce la posibilidad de alucinaciones (generacion de cosas de mentiras).
 Un meta-agente central sintetiza sus aportes en un producto final coherente y pulido.
 
 **📦 Uso como Librería o API**  
