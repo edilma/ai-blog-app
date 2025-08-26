@@ -51,7 +51,7 @@ build-backend = "setuptools.build_meta"
 # --- Package Discovery ---
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["*"]
+include = ["ai_blog_app*"]
 
 [tool.setuptools.package-data]
 "ai_blog_app" = ["llm_config.json"]
