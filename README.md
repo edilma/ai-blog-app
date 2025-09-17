@@ -73,12 +73,12 @@ Install from PyPI:
 
 ````
 
-\<sub\>Requires Python 3.10+\</sub\>
+<sub>Requires Python 3.10+</sub>
 
 Or install the Blog Agent Framework directly from GitHub using `pip`:
 
 ```bash
-pip install git+https://github.com/edilma/AI_Blog_App.git
+pip install git+https://github.com/edilma/ai-blog-app.git
 
 ```
 🌐 Project Links
