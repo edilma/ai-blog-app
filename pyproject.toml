@@ -1,6 +1,6 @@
 [project]
 name = "ai-blog-app"
-version = "1.0.4"
+version = "1.0.5"
 description = "A modular AI application for creating high-engagement blog posts. This framework supports multiple LLMs, optional PDF context, and customizable article length."
 readme = "README.md"
 authors = [
@@ -26,7 +26,8 @@ classifiers = [
 dependencies = [
     "autogen-agentchat>=0.7.1",
     "autogen-ext[all]>=0.7.1",
-    "openai>=1.98.0"
+    "openai>=1.98.0",
+    "python-dotenv>=1.0.0"
 ]
 
 [project.urls]
@@ -50,8 +51,8 @@ build-backend = "setuptools.build_meta"
 
 # --- Package Discovery ---
 [tool.setuptools.packages.find]
-where = ["."]
 include = ["ai_blog_app*"]
+exclude = ["tests*", "examples*"]
 
 [tool.setuptools.package-data]
 "ai_blog_app" = ["llm_config.json"]

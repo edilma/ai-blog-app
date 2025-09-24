@@ -2,7 +2,6 @@ from importlib.resources import files
 import json
 import os
 from dotenv import load_dotenv
-
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_core.models import ModelInfo
 
