@@ -51,4 +51,4 @@ include = ["ai_blog_app*"]
 exclude = ["tests*", "examples*"]
 
 [tool.setuptools.package-data]
-"ai_blog_app" = ["llm_config.json"]
+"ai_blog_app" = ["*.json", "**/*.json"]
