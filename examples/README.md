@@ -13,7 +13,6 @@ Configure your API credentials by copying the .env.example file to .env and addi
 - copy .env.example .env
 - edit the .env file with your api keys
 - run the following commands
-
 ```
 pip install -r requirements.txt
 

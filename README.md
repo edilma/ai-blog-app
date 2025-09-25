@@ -54,6 +54,7 @@ This project is built on **Microsoft AutoGen**, leveraging its multi-agent capab
 -   `autogen-agentchat>=0.7.1`
 -   `autogen-ext[all]>=0.7.1`
 -   `openai>=1.98.0`
+-   `tiktoken>=0.11.0`
 
 ### Flexible LLM Support
 

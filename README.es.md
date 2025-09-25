@@ -61,14 +61,16 @@ Dependencias principales:
 - `autogen-agentchat>=0.7.1`
 - `autogen-ext[all]>=0.7.1`
 - `openai>=1.98.0`
+- `tiktoken>=0.11.0`
 
 ### 🚀 Instalación
 
 Desde PyPI (próximamente):
 
 ```bash
-pip install ai-blog-app
+pip ya viene...
 ````
+<sub>Requiere Python 3.10+</sub>
 
 O directamente desde GitHub:
 
@@ -81,20 +83,6 @@ pip install git+https://github.com/edilma/AI_Blog_App.git
 ---
 
 ## ✍️ Uso Básico
-
-Ejemplo mínimo con la librería:
-
-```python
-from ai_blog_app import BlogOrchestrator
-
-orchestrator = BlogOrchestrator()
-post = orchestrator.generate(
-    topic="Herramientas de IA para marketing",
-    audience="emprendedores",
-    length="corto"
-)
-print(post.markdown)
-```
 
 Ejemplo con scripts incluidos en el repositorio:
 
