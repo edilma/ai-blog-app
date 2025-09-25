@@ -1,13 +1,11 @@
 from importlib.resources import files
 import json
 import os
-from dotenv import load_dotenv
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_core.models import ModelInfo
 
 
 def create_model_client(provider="openai", model="gpt-3.5-turbo"):
-    load_dotenv()
 
     # Access llm_config.json bundled in the package
     config_path = files('ai_blog_app').joinpath("llm_config.json")

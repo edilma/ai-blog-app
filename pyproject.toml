@@ -26,8 +26,7 @@ classifiers = [
 dependencies = [
     "autogen-agentchat>=0.7.1",
     "autogen-ext[all]>=0.7.1",
-    "openai>=1.98.0",
-    "python-dotenv>=1.0.0"
+    "openai>=1.98.0"
 ]
 
 [project.urls]
@@ -38,11 +37,7 @@ BugTracker = "https://github.com/edilma/AI_Blog_App/issues"
 [project.optional-dependencies]
 fastapi = [
     "fastapi",
-    "uvicorn[standard]",
-    "python-dotenv"
-]
-dev = [
-    "python-dotenv",
+    "uvicorn[standard]"
 ]
 
 [build-system]
