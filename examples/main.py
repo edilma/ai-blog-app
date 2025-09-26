@@ -20,18 +20,25 @@ async def main():
     """
     topic = "How to use AI for business ideas generation"
 
-        # --- CHOOSE YOUR LLM PROVIDER AND MODEL ---
-    # The 'provider' must match a provider key in your 'llm_config.json' file.
-    # The 'model' name is optional and will override the default in the JSON.
-    # Supported providers: "gemini", "openai", "ollama", etc.
+  # --- CHOOSE YOUR LLM PROVIDER AND MODEL ---
+    # To use a different model, simply uncomment the provider and model you want.
+    # Make sure you have the corresponding API key in your .env file!
     #
-    # To use OpenAI:
-    # provider = "openai"
-    # model = "gpt-4-turbo"
-    #
-    # To use Gemini:
-    provider = "gemini"
-    model = "gemini-1.5-flash"  # Optional, could be left out if default is in JSON
+    # Option 1: Use Google Gemini (requires GEMINI_API_KEY in .env)
+    #provider = "gemini"
+    #model = "gemini-1.5-flash"
+
+    # Option 2: Use OpenAI (requires OPENAI_API_KEY in .env)
+    provider = "openai"
+    model = "gpt-4-turbo"
+
+    # Option 3: Use Anthropic Claude (requires ANTHROPIC_API_KEY in .env)
+    # provider = "claude"
+    # model = "claude-3-opus-20240229"
+
+    # Option 4: Use a local Ollama model (requires Ollama running locally)
+    # provider = "ollama"
+    # model = "llama3"
 
     print(f"\n--- Generating blog post for: '{topic}' using {provider} / {model} ---")
 
