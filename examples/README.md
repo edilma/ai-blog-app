@@ -9,8 +9,8 @@ This directory contains a self-contained, working example of the AI Blog App lib
     cd examples
     ```
 
-2.  **Configure** your API credentials by copying the `.env.example` file to `.env` and adding your API key.
-
+2.  **Configure** your API credentials by copying the `.env.example` file to `.env` and adding your API key(s).  
+    - You can copy the template from .env.example.
     ```bash
     # On Windows
     copy .env.example .env
@@ -18,10 +18,12 @@ This directory contains a self-contained, working example of the AI Blog App lib
     # On macOS or Linux
     cp .env.example .env
     ```
+    - Edit the new .env file to add your API keys for the models you want to use.
+
 3.  **Install** the necessary dependencies for this example.
 
     ```bash
-    pip install python-dotenv
+    pip install -r requirements.txt
     ```
 
 4.  **Run** the main script.
