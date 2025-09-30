@@ -1,47 +1,81 @@
 # AI Blog App Examples
+
 This directory contains a self-contained, working example of the AI Blog App library. It's the best way to quickly see the framework in action.
 
 ## How to Run the Example
 
-1.  **Navigate** to this directory in your terminal.
+Follow these steps in order to run the example:
 
-    ```bash
-    cd examples
-    ```
+### 1. Navigate to this directory
 
-2.  **Configure** your API credentials creating a new .env file
-    - The example is set up to use one of the popular LLMs configured in main.py. You can easily switch the active model by editing the main.py file.
-    - Copy the template from .env.example.
-    ```bash
-    # On Windows
-    copy .env.example .env
+```bash
+cd examples
+```
 
-    # On macOS or Linux
-    cp .env.example .env
-    ```
-    - **ACTION** Edit the new .env file to add your API keys for the models you want to use.
+### 2. Create a virtual environment
 
-3. **Create and Activate**  a new virtual enviroment
-    ```bash
-        python3 -m venv env
-    ```
-4. **Activate**  the virtual enviroment
-    ```bash
-        # On Windows
-    .\env\Scripts\activate
+```bash
+# Create a virtual environment
+python -m venv env
 
-    # On macOS or Linux
-    source env/bin/activate
-    ```
-5.  **Install** the necessary dependencies for this example.
+# Activate the virtual environment
+# On Windows:
+.\env\Scripts\activate
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+# On macOS/Linux:
+source env/bin/activate
+```
 
-4.  **Run** the main script.
+### 3. Configure API credentials
 
-    ```bash
-    python main.py
-    ```
-This will start the multi-agent system, which will generate a blog post based on the topic provided in the example ("How to use AI for business ideas generation").
+Create a `.env` file from the provided template:
+
+```bash
+# On Windows:
+copy .env.example .env
+
+# On macOS/Linux:
+cp .env.example .env
+```
+
+Then edit the `.env` file and add your API key(s) for the LLM provider you want to use:
+- For OpenAI models: Add your `OPENAI_API_KEY`
+- For Google Gemini models: Add your `GEMINI_API_KEY`
+- For Anthropic Claude models: Add your `ANTHROPIC_API_KEY`
+- For local Ollama: No key needed, just ensure Ollama is running
+
+### 4. Install dependencies
+
+Install the necessary dependencies including the AI Blog App library:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the example
+
+```bash
+python main.py
+```
+
+This will start the multi-agent system, which will generate a blog post based on the topic defined in `main.py` (by default: "How to use AI for business ideas generation").
+
+## Understanding the Output
+
+When you run the example, you'll see:
+1. The agents initializing
+2. The Writer creating an initial draft
+3. Multiple reviewers providing feedback
+4. The Critic consolidating feedback
+5. The Writer creating a final, improved version
+6. The final blog post displayed in the console
+
+## Customizing the Example
+
+You can modify `main.py` to:
+- Change the topic
+- Select a different LLM provider and model (uncomment your preferred option)
+- Add context for more grounded content generation
+- Adjust the maximum word count
+
+For more advanced usage, refer to the main [README.md](../README.md) in the project root.
